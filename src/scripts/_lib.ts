@@ -9,7 +9,7 @@
  *   .hide()
  *   .animate([{ opacity: 0 }, { opacity: 1 }], { duration: 1000 });
  */
-// Определяем типы для методов
+
 type Chainable = {
 	/**
 	 * Добавляет обработчик события для выбранных элементов
@@ -147,14 +147,14 @@ export const $ = (selector: string, parent: ParentNode = document): Chainable =>
 
 		hide(): Chainable {
 			elements.forEach((el) => {
-				el.style.display = 'none';
+				el.classList.add('visually-hidden');
 			});
 			return methods;
 		},
 
 		show(): Chainable {
 			elements.forEach((el) => {
-				el.style.display = '';
+				el.classList.remove('visually-hidden');
 			});
 			return methods;
 		},

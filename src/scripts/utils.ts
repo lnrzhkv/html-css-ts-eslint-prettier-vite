@@ -5,8 +5,11 @@
  * @example
  * const el = createElFromStr('<div>Привет</div>');
  */
-export const createElFromStr = (str: string): Element | null => {
-	const el = document.createElement('div');
+export const createElFromStr = <K extends keyof HTMLElementTagNameMap>(
+	str: string,
+	tag?: K,
+): Element | null => {
+	const el = document.createElement(tag || 'div');
 	el.innerHTML = str;
 	const child = el.firstElementChild;
 	el.remove();

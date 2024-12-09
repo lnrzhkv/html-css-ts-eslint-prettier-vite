@@ -13,6 +13,7 @@
 		"callback-return": "off",
 		"@typescript-eslint/no-unused-expressions": "off",
 		"valid-jsdoc": "off",
+		"import/no-extraneous-dependencies": "off",
 		"prettier/prettier": [
 			"error",
 			{
