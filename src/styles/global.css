@@ -1,6 +1,7 @@
 @import './container.css';
 @import './typography.css';
 @import './utils.css';
+@import './theme.css';
 
 :root {
 	--color-primary: #0275d8;
@@ -27,15 +28,25 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: light) {
-	:root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-	a:hover {
-		color: #747bff;
-	}
-	button {
-		background-color: #f9f9f9;
-	}
+.debug {
+	border: 2px dashed rgb(72, 205, 72);
+	background-color: rgba(215, 193, 52, 0.242);
 }
+
+body {
+	overflow:hidden;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	margin-bottom: 1rem;
+	padding:  0.3rem 1rem;
+}
+
+main {
+	height: 100vh;
+}
+
