@@ -8,7 +8,7 @@
 		<link
 			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
 			rel="stylesheet">
-		<link rel="stylesheet" href="/src/styles/normazile.css" />
+		<link rel="stylesheet" href="/src/styles/_normazile.css" />
 		<link rel="stylesheet" href="/src/styles/global.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Vite + TS</title>
@@ -18,13 +18,16 @@
 		<div class="debug container header">
 			<div class="header-item">header</div>
 			<div class="header-item">menu</div>
-			<div class="header-item"><button id="btn">Click me!</button></div>
+			<div class="header-item"><button data-button="toggle-theme">Click
+					me!</button></div>
 		</div>
 
 		<main class="container">
 			<h1>Lorem ipsum dolor sit amet. H1</h1>
 			<h2>Lorem ipsum dolor sit amet. H2</h2>
 			<p>Click the button to see the magic happen!</p>
+
+			<button data-ass="100" class="test">click me!</button>
 		</main>
 
 		<script type="module" src="/src/scripts/main.ts"></script>

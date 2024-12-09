@@ -1,5 +1,5 @@
-@import './container.css';
-@import './typography.css';
+@import './_container.css';
+@import './_typography.css';
 @import './utils.css';
 @import './theme.css';
 
@@ -17,7 +17,7 @@
 	font-style: normal;
 	line-height: 1.5;
 
-	color: rgba(255, 255, 255, 0.87);
+	color: var(--color-light);
 	background-color: var(--color-dark);
 
 	color-scheme: light dark;
@@ -34,7 +34,7 @@
 }
 
 body {
-	overflow:hidden;
+	overflow: hidden;
 }
 
 .header {
@@ -43,10 +43,9 @@ body {
 	align-items: center;
 
 	margin-bottom: 1rem;
-	padding:  0.3rem 1rem;
+	padding: 0.3rem 1rem;
 }
 
 main {
 	height: 100vh;
 }
-

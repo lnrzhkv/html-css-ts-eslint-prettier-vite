@@ -1,10 +1,7 @@
-import { $ } from "./_lib";
-import { initTheme, toggleTheme } from "./theme";
+import { $ } from './_lib';
+import { initTheme, toggleTheme } from './theme';
 
 document.addEventListener('DOMContentLoaded', () => {
-	initTheme()
-
-	$('button').on('click', () => {
-		toggleTheme()
-	});
+	initTheme();
+	$('[data-button="toggle-theme"]').on('click', toggleTheme);
 });

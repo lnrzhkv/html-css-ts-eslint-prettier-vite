@@ -13,12 +13,21 @@
 type Chainable = {
 	/**
 	 * Добавляет обработчик события для выбранных элементов
-	 * @param {string} event - Тип события
+	 * @param {keyof HTMLElementEventMap} event - Тип события
 	 * @param {(e: Event) => void} callback - Функция-обработчик
 	 * @returns {Chainable}  Chainable - Цепочка методов
 	 * @example $('.button').on('click', (e) => console.log('Клик!'))
 	 */
-	on: (event: string, callback: (e: Event) => void) => Chainable;
+	on: (event: keyof HTMLElementEventMap, callback: (e: Event) => void) => Chainable;
+
+	/**
+	 * Удаляет обработчик события для выбранных элементов
+	 * @param {keyof HTMLElementEventMap} event - Тип события
+	 * @param {(e: Event) => void} callback - Функция-обработчик
+	 * @returns {Chainable}  Chainable - Цепочка методов
+	 * @example $('.button').off('click', (e) => console.log('Клик!'))
+	 */
+	off: (event: keyof HTMLElementEventMap, callback: (e: Event) => void) => Chainable;
 
 	/**
 	 * Добавляет CSS класс к выбранным элементам
@@ -37,6 +46,14 @@ type Chainable = {
 	removeClass: (className: string) => Chainable;
 
 	/**
+	 * Проверяет наличие класса у выбранных элементов
+	 * @param {string} className - Имя класса
+	 * @returns {boolean} Результат проверки
+	 * @example const isClassActiveExist = $('.element').hasClass('active')
+	 */
+	hasClass: (className: string) => boolean;
+
+	/**
 	 * Скрывает выбранные элементы
 	 * @returns {Chainable} Chainable - Цепочка методов
 	 * @example $('.element').hide()
@@ -52,7 +69,7 @@ type Chainable = {
 
 	/**
 	 * Возвращает NodeList выбранных элементов
-	 * @returns {NodeListOf<HTMLElement>} - Список элементов
+	 * @returns {NodeListOf<HTMLElement>} Список элементов/список с одним элементом(в зависимости от кол-ва эл.)
 	 * @example const elements = $('.element').get()
 	 */
 	get: () => NodeListOf<HTMLElement>;
@@ -78,14 +95,6 @@ type Chainable = {
 	css: (styles: Partial<CSSStyleDeclaration>) => Chainable;
 
 	/**
-	 * Проверяет наличие класса у выбранных элементов
-	 * @param {string} className - Имя класса
-	 * @returns {boolean} - Результат проверки
-	 * @example const hasClass = $('.element').hasClass('active')
-	 */
-	hasClass: (className: string) => boolean;
-
-	/**
 	 * Устанавливает атрибуты для выбранных элементов
 	 * @param {Record<string, string>} attributes - Объект атрибутов
 	 * @returns {Chainable} Chainable - Цепочка методов
@@ -94,10 +103,18 @@ type Chainable = {
 	setAttributes: (attributes: Record<string, string>) => Chainable;
 
 	/**
+	 * Возвращает значение дата-аттрибута.
+	 * @param {attributeKey} attributeKey - ключ искомого дата-аттрибута.
+	 * @returns {Chainable} string
+	 * @example $('.element').getAttribute('id')
+	 */
+	getAttribute: (attributeKey: string) => string | boolean;
+
+	/**
 	 * Проверяет наличие атрибута у выбранных элементов
 	 * @param {string} attribute - Имя атрибута
-	 * @returns {boolean} - Результат проверки
-	 * @example const hasAttr = $('.element').hasAttribute('data-id')
+	 * @returns {boolean} Результат проверки
+	 * @example const isAttrExist = $('.element').hasAttribute('data-id')
 	 */
 	hasAttribute: (attribute: string) => boolean;
 
@@ -129,9 +146,18 @@ type Chainable = {
 export const $ = (selector: string, parent: ParentNode = document): Chainable => {
 	const elements: NodeListOf<HTMLElement> = parent.querySelectorAll(selector);
 
+	if (!!elements.length) {
+		console.warn('Element(s) do not exist');
+	}
+
 	const methods: Chainable = {
 		on(event: string, callback: (e: Event) => void): Chainable {
 			elements.forEach((el) => el.addEventListener(event, callback));
+			return methods;
+		},
+
+		off(event: string, callback: (e: Event) => void): Chainable {
+			elements.forEach((el) => el.removeEventListener(event, callback));
 			return methods;
 		},
 
@@ -187,6 +213,10 @@ export const $ = (selector: string, parent: ParentNode = document): Chainable =>
 				});
 			});
 			return methods;
+		},
+
+		getAttribute(attributeKey: string): string | boolean {
+			return elements[0].getAttribute(attributeKey) || false;
 		},
 
 		hasAttribute(attribute: string): boolean {

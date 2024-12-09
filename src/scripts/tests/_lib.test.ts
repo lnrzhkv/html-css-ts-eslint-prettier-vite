@@ -42,9 +42,20 @@ describe('$ library', () => {
 			const mockCallback = vi.fn();
 
 			$('.multi').on('click', mockCallback);
-			document.querySelectorAll('.multi').forEach((el) => el.click());
+			document.querySelectorAll('.multi').forEach((el) => (el as HTMLElement).click());
 
 			expect(mockCallback).toHaveBeenCalledTimes(2);
+		});
+
+		test('should remove event listener to multiple elements', () => {
+			createElement('multi');
+			createElement('multi');
+			const mockCallback = vi.fn();
+
+			$('.multi').on('click', mockCallback).off('click', mockCallback);
+			document.querySelectorAll('.multi').forEach((el) => (el as HTMLElement).click());
+
+			expect(mockCallback).not.toHaveBeenCalled();
 		});
 	});
 
@@ -173,6 +184,15 @@ describe('$ library', () => {
 
 			expect(div.hasAttribute('data-test')).toBe(false);
 			expect(div.hasAttribute('aria-label')).toBe(false);
+		});
+	});
+
+	describe('getAttribute()', () => {
+		test('should return attribute from elements', () => {
+			const div = createElement();
+			div.setAttribute('data-test', 'value');
+
+			expect($('.test-element').getAttribute('data-test')).toBe('value');
 		});
 	});
 
