@@ -1,0 +1,41 @@
+@import './container.css';
+@import './typography.css';
+@import './utils.css';
+
+:root {
+	--color-primary: #0275d8;
+	--color-success: #5cb85c;
+	--color-info: #5bc0de;
+	--color-warning: #f0ad4e;
+	--color-danger: #d9534f;
+	--color-light: #f7f7f7;
+	--color-dark: #292b2c;
+
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	line-height: 1.5;
+
+	color: rgba(255, 255, 255, 0.87);
+	background-color: var(--color-dark);
+
+	color-scheme: light dark;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		color: #213547;
+		background-color: #ffffff;
+	}
+	a:hover {
+		color: #747bff;
+	}
+	button {
+		background-color: #f9f9f9;
+	}
+}

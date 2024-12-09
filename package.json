@@ -1,28 +1,31 @@
 {
-  "name": "html-css-ts-eslint-prettier-vite",
-  "private": true,
-  "version": "0.0.0",
-  "scripts": {
-    "start": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "init": "node  ./scripts/init.js"
-  },
-  "devDependencies": {
-    "@gravity-ui/babel-preset": "1.0.1",
-    "@gravity-ui/browserslist-config": "4.3.0",
-    "@gravity-ui/eslint-config": "3.2.0",
-    "@gravity-ui/prettier-config": "1.1.0",
-    "@gravity-ui/stylelint-config": "4.0.1",
-    "@gravity-ui/tsconfig": "1.0.0",
-    "eslint": "8.57.1",
-    "postcss": "8.4.49",
-    "prettier": "3.4.2",
-    "stylelint": "15.11.0",
-    "typescript": "~5.6.2",
-    "vite": "6.0.1"
-  },
-  "browserslist": [
-    "extends @gravity-ui/browserslist-config"
-  ]
+	"name": "html-css-ts-eslint-prettier-vite",
+	"private": true,
+	"version": "0.0.0",
+	"scripts": {
+		"start": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@gravity-ui/babel-preset": "1.0.1",
+		"@gravity-ui/browserslist-config": "4.3.0",
+		"@gravity-ui/eslint-config": "3.2.0",
+		"@gravity-ui/prettier-config": "1.1.0",
+		"@gravity-ui/stylelint-config": "4.0.1",
+		"@gravity-ui/tsconfig": "1.0.0",
+		"eslint": "8.57.1",
+		"postcss": "8.4.49",
+		"prettier": "3.4.2",
+		"stylelint": "15.11.0",
+		"typescript": "5.6.2",
+		"vite": "6.0.1"
+	},
+	"browserslist": [
+		"extends @gravity-ui/browserslist-config"
+	],
+	"dependencies": {
+		"chalk": "5.3.0",
+		"normalize.css": "^8.0.1"
+	}
 }

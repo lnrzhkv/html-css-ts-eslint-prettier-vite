@@ -1,8 +1,47 @@
 {
-  "extends": [
-    "@gravity-ui/eslint-config",
-    "@gravity-ui/eslint-config/prettier",
-    "@gravity-ui/eslint-config/import-order"
-  ],
-  "root": true
+	"extends": [
+		"@gravity-ui/eslint-config",
+		"@gravity-ui/eslint-config/prettier",
+		"@gravity-ui/eslint-config/import-order"
+	],
+	"root": true,
+	"rules": {
+		"no-negated-condition": "off",
+		"no-param-reassign": "off",
+		"no-implicit-coercion": "off",
+		"no-extra-boolean-cast": "off",
+		"callback-return": "off",
+		"@typescript-eslint/no-unused-expressions": "off",
+		"valid-jsdoc": "off",
+		"prettier/prettier": [
+			"error",
+			{
+				"bracketSpacing": true
+			}
+		],
+		"spaced-comment": [
+			"error",
+			"always",
+			{
+				"line": {
+					"markers": [
+						"/"
+					],
+					"exceptions": [
+						"-",
+						"+"
+					]
+				},
+				"block": {
+					"markers": [
+						"!"
+					],
+					"exceptions": [
+						"*"
+					],
+					"balanced": true
+				}
+			}
+		]
+	}
 }
