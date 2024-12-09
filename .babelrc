@@ -1,17 +1,19 @@
 {
   "presets": [
-    "@gravity-ui/babel-preset",
-    {
-      "env": {
-        "modules": false
-      },
-      "runtime": {
-        "useESModules": true
-      },
-      "typescript": true,
-      "react": {
-        "runtime": "automatic"
+    [
+      "@gravity-ui/babel-preset",
+      {
+        "env": {
+          "modules": false
+        },
+        "runtime": {
+          "useESModules": true
+        },
+        "typescript": true,
+        "react": {
+          "runtime": "automatic"
+        }
       }
-    }
+    ]
   ]
 }

@@ -2,11 +2,11 @@
   "name": "html-css-ts-eslint-prettier-vite",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "init": "node  ./scripts/init.js"
   },
   "devDependencies": {
     "@gravity-ui/babel-preset": "1.0.1",
