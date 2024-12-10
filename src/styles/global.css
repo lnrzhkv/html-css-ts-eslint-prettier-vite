@@ -1,24 +1,24 @@
 @import './_container.css';
 @import './_typography.css';
 @import './utils.css';
-@import './theme.css';
 
 :root {
-	--color-primary: #0275d8;
-	--color-success: #5cb85c;
-	--color-info: #5bc0de;
-	--color-warning: #f0ad4e;
-	--color-danger: #d9534f;
-	--color-light: #f7f7f7;
-	--color-dark: #292b2c;
+	--color-primary: #0070f3; /* Яркий синий */
+	--color-success: #17c964; /* Мягкий зеленый */
+	--color-info: #0074f6; /* Глубокий синий */
+	--color-warning: #f5a623; /* Ярко-оранжевый */
+	--color-danger: #f31260; /* Насыщенный розово-красный */
+	--color-light: #f1f3f5; /* Светло-серый */
+	--color-dark: #11181c; /* Темно-серый */
+	--color-inactive: rgba(17, 24, 28, 0.5); /* Темно-серый прозрачный */
 
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 	font-style: normal;
 	line-height: 1.5;
 
-	color: var(--color-light);
-	background-color: var(--color-dark);
+	color: var(--color-dark);
+	background-color: var(--color-light);
 
 	color-scheme: light dark;
 
@@ -33,10 +33,6 @@
 	background-color: rgba(215, 193, 52, 0.242);
 }
 
-body {
-	overflow: hidden;
-}
-
 .header {
 	display: flex;
 	justify-content: space-between;
@@ -48,4 +44,102 @@ body {
 
 main {
 	height: 100vh;
+}
+
+button {
+	width: fit-content;
+	padding: 0.5rem 1rem;
+
+	font-size: 0.875rem;
+	cursor: pointer;
+
+	color: var(--color-light);
+	border: none;
+	border-radius: 14px;
+	background-color: var(--color-primary);
+}
+
+button:focus {
+	outline: 2px solid #0071f373;
+}
+
+button.disabled {
+	cursor: default;
+	user-select: none;
+	pointer-events: none;
+
+	opacity: 0.5;
+}
+
+.progress-container {
+	position: relative;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 350px;
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+.progress-container::before {
+	position: absolute;
+	z-index: -1;
+	top: 50%;
+	left: 0;
+
+	width: 100%;
+	height: 3px;
+
+	content: '';
+
+	background-color: var(--color-inactive);
+
+	transform: translateY(-50%);
+}
+
+.progress {
+	position: absolute;
+	z-index: -1;
+	top: 50%;
+	left: 0;
+
+	width: 0%;
+	height: 0.25rem;
+
+	background-color: var(--color-success);
+
+	transition: 0.4s ease;
+	transform: translateY(-50%);
+}
+
+.circle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 2rem;
+	height: 2rem;
+
+	font-size: 1rem;
+
+	border: 3px solid var(--color-inactive);
+	border-radius: 50%;
+	background-color: var(--color-light);
+
+	transition: 0.4s ease;
+}
+
+.circle.active {
+	border-color: var(--color-success);
+}
+
+.controls {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+
+	margin-top: 1rem;
 }
