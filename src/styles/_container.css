@@ -1,38 +1,10 @@
-/* Mobile First подход */
-
 .container {
-	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	width: 90%;
+	max-width: 1240px;
 	margin: 0 auto;
-	padding: 0 1rem;
-}
-
-@media (min-width: 576px) {
-	.container {
-		max-width: 540px;
-		padding: 0;
-	}
-}
-
-@media (min-width: 768px) {
-	.container {
-		max-width: 720px;
-	}
-}
-
-@media (min-width: 992px) {
-	.container {
-		max-width: 960px;
-	}
-}
-
-@media (min-width: 1200px) {
-	.container {
-		max-width: 1140px;
-	}
-}
-
-@media (min-width: 1400px) {
-	.container {
-		max-width: 1320px;
-	}
 }
