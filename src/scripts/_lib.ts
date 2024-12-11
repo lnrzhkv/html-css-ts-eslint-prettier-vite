@@ -146,8 +146,8 @@ type Chainable = {
 export const $ = (selector: string, parent: ParentNode = document): Chainable => {
 	const elements: NodeListOf<HTMLElement> = parent.querySelectorAll(selector);
 
-	if (!!elements.length) {
-		console.warn('Element(s) do not exist');
+	if (!elements.length) {
+		console.warn(`'Element(s) ${selector} do not exist'`);
 	}
 
 	const methods: Chainable = {

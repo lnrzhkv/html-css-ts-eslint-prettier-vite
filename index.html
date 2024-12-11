@@ -11,12 +11,23 @@
 		<link rel="stylesheet" href="/src/styles/_normazile.css" />
 		<link rel="stylesheet" href="/src/styles/global.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Vite + TS</title>
+		<title>Progress Steps</title>
 	</head>
 	<body>
 
 		<main class="container">
 			<!-- code there -->
+			<div class="progress-wrapper">
+				<div class="progress" id="progress"></div>
+				<div class="circle active">1</div>
+				<div class="circle">2</div>
+				<div class="circle">3</div>
+				<div class="circle">4</div>
+			</div>
+			<div class="btn-container">
+				<button class="btn prev-btn disabled">Prev</button>
+				<button class="btn next-btn">Next</button>
+			</div>
 		</main>
 
 		<script type="module" src="/src/scripts/main.ts"></script>
