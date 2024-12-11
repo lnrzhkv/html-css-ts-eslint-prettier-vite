@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	$('.panel').on('click', (e) => {
 		$('.panel').removeClass('active');
 
-		if (e.currentTarget) {
+		if (e.currentTarget instanceof HTMLElement) {
 			e.currentTarget.classList.add('active');
 		}
 	});
