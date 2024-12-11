@@ -42,6 +42,7 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	gap: 3px;
 
 	width: 90vw;
 }
@@ -82,6 +83,19 @@ main {
 
 .panel.active h3 {
 	opacity: 1;
+	color: transparent;
+	background: linear-gradient(
+		0deg,
+		rgba(129, 145, 166, 0.7931547619047619) 30%,
+		rgba(228, 235, 244, 0.7931547619047619) 74%
+	);
+	background-clip: text;
+}
+
+.panel.active h3:hover {
+	color: var(--color-light);
+
+	transition: 0.3s all ease-in-out;
 }
 
 @media (max-width: 480px) {
