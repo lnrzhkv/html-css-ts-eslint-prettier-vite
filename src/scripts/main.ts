@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 				circle.classList.remove('active');
 			}
 		});
+
+		const actives = $('.active').get();
+		$('.progress').css({ width: ((actives.length - 1) / (circles.length - 1)) * 100 + '%' });
 	};
 
 	$('.prev-btn').on('click', () => {
