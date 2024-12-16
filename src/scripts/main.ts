@@ -17,6 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
 		$('.progress').css({ width: ((actives.length - 1) / (circles.length - 1)) * 100 + '%' });
 	};
 
+	const isActiveButton = () => {
+		prev = document.querySelector('.prev-btn');
+		next = document.querySelector('.next-btn');
+
+		if (currentActive === 1) {
+			prev.disabled = true;
+		} else if (currentActive === circles.length) {
+			next.disabled = true;
+		} else {
+			prev.disabled = false;
+			next.disabled = false;
+		}
+	};
+
 	$('.prev-btn').on('click', () => {
 		currentActive = currentActive - 1;
 
@@ -24,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			currentActive = 1;
 		}
 		update();
+		isActiveButton();
 	});
 
 	$('.next-btn').on('click', () => {
@@ -34,5 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		update();
+		isActiveButton();
 	});
 });
