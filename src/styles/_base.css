@@ -1,19 +1,17 @@
 button {
 	width: fit-content;
-	padding: 0.5rem 1rem;
+	height: 36px;
 
-	font-size: 0.875rem;
 	cursor: pointer;
 
 	color: var(--color-light);
 	border: none;
-	border-radius: 14px;
-	background-color: var(--color-primary);
+	border-radius: 6px;
 }
 
-button:focus {
+/* button:focus {
 	outline: 2px solid #0071f373;
-}
+} */
 
 button.disabled {
 	cursor: default;
