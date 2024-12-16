@@ -18,16 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 
 	const isActiveButton = () => {
-		prev = document.querySelector('.prev-btn');
-		next = document.querySelector('.next-btn');
+		const prev = document.querySelector('.prev-btn');
+		const next = document.querySelector('.next-btn');
 
-		if (currentActive === 1) {
-			prev.disabled = true;
-		} else if (currentActive === circles.length) {
-			next.disabled = true;
-		} else {
-			prev.disabled = false;
-			next.disabled = false;
+		if (prev instanceof HTMLButtonElement && next instanceof HTMLButtonElement) {
+			if (currentActive === 1) {
+				prev.disabled = true;
+			} else if (currentActive === circles.length) {
+				next.disabled = true;
+			} else {
+				prev.disabled = false;
+				next.disabled = false;
+			}
 		}
 	};
 
